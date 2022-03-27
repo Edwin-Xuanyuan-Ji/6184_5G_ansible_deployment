@@ -5,8 +5,12 @@
     max_clients: 200
   remote_user: root
   tasks:
-  - name: Install Docker - CE
-          apt:
+    - name : Install firewall
+      apt  :
+            name: ['iptables']
+
+    - name : Install Docker - CE
+      apt  :
             name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
             state: present
             update_cache: yes
