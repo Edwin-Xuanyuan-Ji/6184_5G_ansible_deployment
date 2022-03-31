@@ -1,0 +1,26 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  remote_user: root
+  vars:
+    
+  tasks:
+    - name  : Update APT
+      shell :  |
+            sudo apt update  
+             
+    - name : Install software-properties-common
+      apt  :
+            name: ['software-properties-common']
+
+    - name : Add Open5GS apt repository
+      shell :  |
+            sudo add-apt-repository ppa:open5gs/latest
+            
+    - name  : Update APT
+      shell :  |
+            sudo apt update
+
+    - name : Install Open5GS
+      apt  :
+            name: ['open5gs']
