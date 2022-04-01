@@ -67,7 +67,8 @@
                   ciphering_order : [ NEA0, NEA1, NEA2 ]
               network_name:
                   full: Open5GS
-                  amf_name: open5gs-amf0
+              amf_name: open5gs-amf0
+              
           nrf:
               sbi:
                 - addr:
@@ -79,9 +80,10 @@
       shell :  |
             sudo systemctl restart open5gs-amfd 
             
-    - name  : Amf logs can be found in /var/log/open5gs/amf.log
-      shell :  |
-            sudo tail -f /var/log/open5gs/amf.log
+    #- name  : Amf logs can be found in /var/log/open5gs/amf.log
+    #  shell :  |
+    #        sudo tail -f /var/log/open5gs/amf.log
+    
              
 
 
