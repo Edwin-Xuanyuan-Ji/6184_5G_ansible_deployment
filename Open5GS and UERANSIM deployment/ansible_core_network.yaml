@@ -84,7 +84,25 @@
     #  shell :  |
     #        sudo tail -f /var/log/open5gs/amf.log
     
-             
+    - name  : Build upf config file
+      copy  :
+        dest: "/etc/open5gs/upf.yaml"
+        content: |
+          logger:
+              file: /var/log/open5gs/upf.log
+          upf:
+              pfcp:
+                - addr: 127.0.0.7
+              gtpu:
+                - addr: {{ip_address}}
+              subnet:
+                - addr: 10.45.0.1/16
+                - addr: 2001:230:cafe::1/48
+
+
+    - name  : Restart amf services
+      shell :  |
+            sudo systemctl restart open5gs-upfd 
 
 
 
