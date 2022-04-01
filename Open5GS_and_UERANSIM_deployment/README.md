@@ -50,3 +50,5 @@ The following steps are required to complete setup.
 ``` ansible-playbook ansible_core_network.yaml ```
 
 
+(To do: 1.delete git folder 2.change chdir in yaml)
+
