@@ -141,13 +141,8 @@
       shell:  |
             git clone https://github.com/open5gs/open5gs.git
 
-    - name : Go to folder open5gs
-      shell:  |
-            cd open5gs/
-
     - name : Go to folder webui
-      shell:  |
-            cd webui/
+      command: chdir=/home/jxy6184/6184_5G_ansible_deployment/Open5GS and UERANSIM deployment/open5gs/webui ls
             
     - name : Install npm
       shell:  |
