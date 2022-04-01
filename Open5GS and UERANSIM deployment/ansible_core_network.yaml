@@ -141,10 +141,20 @@
       shell:  |
             git clone https://github.com/open5gs/open5gs.git
 
+    - name : Go to folder open5gs
+      shell:  |
+            cd open5gs/
+
+    - name : Go to folder webui
+      shell:  |
+            cd webui/
+            
     - name : Install npm
       shell:  |
             npm install
-           
             
+    - name : Run open5gs
+      shell:  |
+           npm run dev --host 0.0.0.0
 
   
