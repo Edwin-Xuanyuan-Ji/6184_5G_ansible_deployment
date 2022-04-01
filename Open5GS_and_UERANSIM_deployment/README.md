@@ -42,8 +42,8 @@ The following steps are required to complete setup.
 
 **4. Go to the folder:**      
     
-``` cd Open5GS and UERANSIM deployment ```
 ``` cd 6184_5G_ansible_deployment/ ```
+``` cd Open5GS_and_UERANSIM_deployment ```
 
 **5. Run ansible playbook:**
 
