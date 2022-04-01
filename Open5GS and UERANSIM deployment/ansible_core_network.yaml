@@ -24,3 +24,7 @@
     - name : Install Open5GS
       apt  :
             name: ['open5gs']
+            
+    - name : Install Open5GS
+      apt  :
+            name: ['vim']
