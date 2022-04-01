@@ -133,12 +133,18 @@
       shell:  |
             curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-    - name : Install curl
+    - name : Install nodejs
       apt  :
             name: ['nodejs']
     
     - name : Clone webui
       shell:  |
             git clone https://github.com/open5gs/open5gs.git
+
+    - name : Install npm
+      shell:  |
+            npm install
+           
+            
 
   
