@@ -29,11 +29,11 @@
             name: ['g++']
             
     - name  : Install libsctp-dev
-       apt :  
+      apt :  
             name: ['libsctp-dev']      
 
     - name  : Install lksctp-tools
-       apt :  
+      apt :  
             name: ['lksctp-tools'] 
             
     - name  : Install cmake
@@ -41,7 +41,7 @@
             iproute2 sudo snap install cmake --classic
     
     - name  : Install git
-      apt   :
+      apt   :  
             name: ['git']
             
     - name  : Install ueransim
@@ -49,7 +49,7 @@
             git clone https://github.com/aligungr/UERANSIM
     
     - name  : Make UERANSIM
-      shell : |
+      shell :  |
         cmd : make
         chdir: "{{BASE_DIR_INSTALL}}/UERANSIM"
             
