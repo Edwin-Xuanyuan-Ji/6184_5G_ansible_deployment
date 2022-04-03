@@ -6,7 +6,9 @@
   vars:
   #config your 5G core running server IP
     ip_address: 192.168.80.145  
-
+  #config your path for installation
+    BASE_DIR_INSTALL: '/home/jxy6184'
+    
   tasks:
     - name  : Update APT
       shell :  |
@@ -144,12 +146,12 @@
     - name : Install npm
       shell:
          cmd: npm install
-         chdir: /home/jxy6184/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
+         chdir: {{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
 
     - name : Run open5gs
       shell:
          cmd: npm run dev --host 0.0.0.0
-         chdir: /home/jxy6184/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
+         chdir: {{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
 
 
   
