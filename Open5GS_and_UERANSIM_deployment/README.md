@@ -127,6 +127,8 @@ Be aware you may need to install ansible on server2:
 
 **13.Run playbook for server2**
 
-``` ansible-playbook ansible_UE_gnb.yaml ```
+``` ansible-playbook ansible_UE_gnb.yaml... ```
+
+To do : ansible_UE_gnb.yaml...
 
 
