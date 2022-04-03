@@ -1,0 +1,19 @@
+---
+- hosts: server2
+  connection: local
+  remote_user: root
+ 
+  vars:
+  #config your UE and gnb running server IP
+    ip_address: server2
+  #config your path for installation
+    BASE_DIR_INSTALL: '/home/jxy6184'
+    
+  tasks:
+    - name  : Update APT
+      shell :  |
+            sudo apt update  
+
+
+  
+
