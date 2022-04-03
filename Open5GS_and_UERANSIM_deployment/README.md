@@ -49,6 +49,34 @@ The following steps are required to complete setup.
 
 ``` ansible-playbook ansible_core_network.yaml ```
 
+**6. Test Open5GS web interface**
 
-(To do: 1.delete git folder 2.change chdir in yaml)
+``` http://localhost:3000 ```  
 
+  User name : admin  
+  Password :1423   
+  
+![](images/Open5GS_login.png)
+![](images/Open5GS.png)
+**7. Add new subscriber**
+
+The default device information can be found in open5gs config on UERANSIM.
+
+IMSI: 901700000000001
+
+Subscriber Key: 465B5CE8B199B49FAA5F0A2EE238A6BC
+
+USIM Type: OPc
+
+Operator Key: E8ED289DEBA952E4283B54E88E6183CA
+
+![](images/Add_subscriber.png)
+
+If you close the terminal, you can go to webui folder and run
+
+``` npm run dev --host 0.0.0.0 ```  
+
+to restart Open5GS.
+
+
+  
