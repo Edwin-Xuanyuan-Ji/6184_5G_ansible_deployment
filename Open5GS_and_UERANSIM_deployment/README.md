@@ -121,11 +121,11 @@ Be aware you may need to install ansible on server2:
 
 ![](images/ansible_ping.png)
 
-**12.Go to folder **
+**12.Go to folder**
 
 ``` cd Open5GS_and_UERANSIM_deployment ```
 
-**13.Run playbook for server2 **
+**13.Run playbook for server2**
 
 ``` ansible-playbook ansible_UE_gnb.yaml ```
 
