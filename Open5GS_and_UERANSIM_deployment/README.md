@@ -28,24 +28,24 @@ The following steps are required to complete setup.
 
 **On server1:**
 
-**1. Install git:**      
+**1. Install git**      
     
 ``` sudo apt git ``` 
 
-**2. Install ansible:**      
+**2. Install ansible**      
     
 ``` sudo apt ansible ```
 
-**3. Clone this repository:**      
+**3. Clone this repository**      
     
 ``` git clone https://github.com/J1mmy99/6184_5G_ansible_deployment.git ```
 
-**4. Go to the folder:**      
+**4. Go to the folder**      
     
 ``` cd 6184_5G_ansible_deployment/ ```
 ``` cd Open5GS_and_UERANSIM_deployment ```
 
-**5. Run ansible playbook:**
+**5. Run ansible playbook**
 
 ``` ansible-playbook ansible_core_network.yaml ```
 
@@ -78,5 +78,55 @@ If you close the terminal, you can go to webui folder and run
 
 to restart Open5GS.
 
+**8.Create public key**
 
-  
+``` ssh-keygen -t rsa ```  
+
+**9.Distribute public key to server2**
+
+``` ssh-copy-id -i ~/.ssh/id_rsa.pub root@server2_ip_address ```
+
+Be aware you may need to install openssh-server and change sshd configuration on server2 by doing this:
+
+``` sudo apt-get install openssh-server ```
+
+``` sudo vim /etc/ssh/sshd_config ```
+
+``` 
+PermitRootLogin yes
+
+PubkeyAuthentication yes
+
+PasswordAuthentication yes
+```
+
+``` sudo service sshd restart ```
+
+**10.Configure ansible**
+
+``` vim /etc/ansible/hosts ```
+
+``` 
+[server2]
+server2_ip_address
+```
+
+**11.Test ansible communication**
+
+``` ansible server -m ping ``` 
+
+Be aware you may need to install ansible on server2:
+
+``` sudo apt install ansible ```
+
+![](images/ansible_ping.png)
+
+**12.Go to folder **
+
+``` cd Open5GS_and_UERANSIM_deployment ```
+
+**13.Run playbook for server2 **
+
+``` ansible-playbook ansible_UE_gnb.yaml ```
+
+
