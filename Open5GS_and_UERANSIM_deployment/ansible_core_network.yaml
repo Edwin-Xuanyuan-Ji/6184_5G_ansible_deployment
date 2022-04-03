@@ -146,12 +146,12 @@
     - name : Install npm
       shell:
          cmd: npm install
-         chdir: {{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
+         chdir: "{{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui"
 
     - name : Run open5gs
       shell:
          cmd: npm run dev --host 0.0.0.0
-         chdir: {{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui
+         chdir: "{{BASE_DIR_INSTALL}}/6184_5G_ansible_deployment/Open5GS_and_UERANSIM_deployment/open5gs/webui"
 
 
   
