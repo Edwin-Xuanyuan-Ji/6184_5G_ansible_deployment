@@ -28,11 +28,11 @@
       apt :  
             name: ['g++']
             
-     - name  : Install libsctp-dev
+    - name  : Install libsctp-dev
        apt :  
             name: ['libsctp-dev']      
 
-     - name  : Install lksctp-tools
+    - name  : Install lksctp-tools
        apt :  
             name: ['lksctp-tools'] 
             
