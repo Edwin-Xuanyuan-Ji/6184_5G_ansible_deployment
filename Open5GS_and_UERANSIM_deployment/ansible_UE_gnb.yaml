@@ -21,8 +21,20 @@
             sudo apt upgrade
             
     - name  : Install make
-      shell :  |
-            sudo apt install make g++ libsctp-dev lksctp-tools
+      apt :  
+            name: ['make'] 
+    
+    - name  : Install g++
+      apt :  
+            name: ['g++']
+            
+     - name  : Install libsctp-dev
+       apt :  
+            name: ['libsctp-dev']      
+
+     - name  : Install lksctp-tools
+       apt :  
+            name: ['lksctp-tools'] 
             
     - name  : Install cmake
       shell :  |
