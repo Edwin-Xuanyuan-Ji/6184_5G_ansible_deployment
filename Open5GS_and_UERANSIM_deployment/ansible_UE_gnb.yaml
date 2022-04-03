@@ -36,22 +36,44 @@
       apt :  
             name: ['lksctp-tools'] 
             
+    - name  : Install bison
+      apt  :
+            name: ['bison']
+
+    - name  : Install flex
+      apt  :
+            name: ['flex']
+
+    - name  : Install iproute2
+      apt  :
+            name: ['iproute2']
+
+    - name  : Install iproute2-doc
+      apt  :
+            name: ['iproute2-doc']
+
+    - name  : Install net-tools
+      apt   :
+            name: ['net-tools']
+
     - name  : Install cmake
       shell :  |
-            iproute2 sudo snap install cmake --classic
-    
+            sudo snap install cmake --classic
+
     - name  : Install git
-      apt   :  
+      apt   :
             name: ['git']
-            
+
     - name  : Install ueransim
-      shell :  |
-            git clone https://github.com/aligungr/UERANSIM
-    
+      shell :
+        cmd : git clone https://github.com/aligungr/UERANSIM
+        chdir: "{{BASE_DIR_INSTALL}}"
+
     - name  : Make UERANSIM
-      shell :  |
+      shell :
         cmd : make
         chdir: "{{BASE_DIR_INSTALL}}/UERANSIM"
+
             
 
 
