@@ -9,10 +9,38 @@
   #config your path for installation
     BASE_DIR_INSTALL: '/home/jxy6184'
     
-  tasks:
+  tasks:            
+     # install cmake
+     # UERANSIM does not work with the apt version of cmake, that's why we need to install snap and the snap version of cmake:
     - name  : Update APT
       shell :  |
-            sudo apt update  
+            sudo apt update
+            
+    - name  : Upgrade APT
+      shell :  |
+            sudo apt upgrade
+            
+    - name  : Install make
+      shell :  |
+            sudo apt install make g++ libsctp-dev lksctp-tools
+            
+    - name  : Install cmake
+      shell :  |
+            iproute2 sudo snap install cmake --classic
+    
+    - name  : Install git
+      apt   :
+            name: ['git']
+            
+    - name  : Install ueransim
+      shell :  |
+            git clone https://github.com/aligungr/UERANSIM
+    
+    - name  : Make UERANSIM
+      shell : |
+        cmd : make
+        chdir: "{{BASE_DIR_INSTALL}}/UERANSIM"
+            
 
 
   
