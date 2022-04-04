@@ -112,7 +112,7 @@
             
     - name  : Nat port forwarding(2/4)
       shell :  |                 
-            sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+            sudo iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
             
     - name  : Nat port forwarding(3/4)
       shell :  |                   
