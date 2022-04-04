@@ -113,7 +113,7 @@ server2_ip_address
 
 **11.Test ansible communication**
 
-``` ansible server -m ping ``` 
+``` ansible server2 -m ping ``` 
 
 Be aware you may need to install ansible on server2:
 
@@ -129,6 +129,23 @@ Be aware you may need to install ansible on server2:
 
 ``` ansible-playbook ansible_UE_gnb.yaml... ```
 
-To do : ansible_UE_gnb.yaml...
+**14. Start gnb with open5gc-gnb.yaml config file on server2**
+
+``` sudo ./build/nr-gnb -c config/open5gs-gnb.yaml ```
+
+![](images/gnb.png)
+
+**14. Start ue with open5gc-ue.yaml config file on server2**
+
+``` sudo ./build/nr-ue -c config/open5gs-ue.yaml ```
+
+![](images/ue.png)
+
+**15. Test 5G Network on server2**
+
+``` ping -I uesimtun0 google.com ```
+
+![](images/5G_ping.png)
+
 
 
