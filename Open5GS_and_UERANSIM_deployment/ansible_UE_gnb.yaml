@@ -4,8 +4,10 @@
   remote_user: root
  
   vars:
+  #config your 5G core running server IP
+    ip1_address: 192.168.80.145  
   #config your UE and gnb running server IP
-    ip_address: server2
+    ip2_address: 192.168.80.147  
   #config your path for installation
     BASE_DIR_INSTALL: '/home/jxy6184'
     
@@ -73,6 +75,31 @@
       shell :
         cmd : make
         chdir: "{{BASE_DIR_INSTALL}}/UERANSIM"
+        
+    - name  : Build gnb config file
+      copy  :
+        dest: "{{BASE_DIR_INSTALL}}/UERANSIM/config/open5gs-gnb.yaml"
+        content: |
+          mcc: '901'          # Mobile Country Code value
+          mnc: '70'           # Mobile Network Code value (2 or 3 digits)
+
+          nci: '0x000000010'  # NR Cell Identity (36-bit)
+          idLength: 32        # NR gNB ID length in bits [22...32]
+          tac: 1              # Tracking Area Code
+
+          linkIp: {{ip2_address}}   # gNB's local IP address for Radio Link Simulation (Usually same with local IP)
+          ngapIp: {{ip2_address}}   # gNB's local IP address for N2 Interface (Usually same with local IP)
+          gtpIp: {{ip2_address}}    # gNB's local IP address for N3 Interface (Usually same with local IP)
+
+          # List of AMF address information
+          amfConfigs:
+            - address: {{ip1_address}}
+              port: 38412
+
+          # List of supported S-NSSAIs by this gNB
+          slices:
+            - sst: 1
+
 
             
 
