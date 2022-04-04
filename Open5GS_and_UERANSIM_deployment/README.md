@@ -47,6 +47,8 @@ The following steps are required to complete setup.
 
 **5. Run ansible playbook**
 
+(Before run ansible playbook, check the variables.)
+
 ``` ansible-playbook ansible_core_network.yaml ```
 
 **6. Test Open5GS web interface**
@@ -126,6 +128,8 @@ Be aware you may need to install ansible on server2:
 ``` cd Open5GS_and_UERANSIM_deployment ```
 
 **13.Run playbook for server2**
+
+(Before run ansible playbook, check the variables.)
 
 ``` ansible-playbook ansible_UE_gnb.yaml... ```
 
