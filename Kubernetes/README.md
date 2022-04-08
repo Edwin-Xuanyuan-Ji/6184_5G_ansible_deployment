@@ -1,6 +1,16 @@
 
 # Using Kubernetes to deploy 5GC network and moniter the service
-
+- [Prerequisites](#prerequisites)
+- [Configuration](#configuration)
+  - [configure IP tables](#configure-IP-tables)
+  - [Install Minikube](#Install-Minikube)
+  - [Install kubectl](#Install-kubectl)
+  - [Kube-flannel & etcd-ha-operator](#kube-flannel-\&-etcd-ha-operator)
+  - [Openvswitch, Multus and OVS-CNI Containers](#openvswitch\,-multus-and-ovs-cni-containers)
+- [Deployments](#Deployments)
+- [Grafana prometheus](#Using-grafana\.promtheus-community-to-monitor-5GC-service)
+  - [Install helm](#Install-helm)
+  - [Deploy chart](#deploy-chart-of-kube-prometheus-stack)
 ## prerequisites
 We use KVM to create a Linux OS virtual machine, with the configuration and Kernel setup:
 - Ubuntu-bionic-18.04 running with Kernel 5.0.0-23 generic with 4G RAM, 10GHDD.
@@ -139,7 +149,8 @@ git clone https://github.com/PrinzOwO/gtp5g
 cd gtp5g
 sudo apt install make
 ```
-
+![](pics/getpod.png)
+![](pics/getsvc2.png)
 ## Using grafana.promtheus-community to monitor 5GC service
 
 ### Install helm and verify it
@@ -195,8 +206,8 @@ helm repo update
 # view charts
 helm search repo prometheus-community
 ```
+![](pics/prometheus1.png)  
 deploy chart
-图
 ```
 kubectl create namespace prometheus
 helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
@@ -209,11 +220,13 @@ kubectl get svc -n prometheus | grep grafana
 # now grafana can be accssed via <server ip>:8080
 kubectl port-forward -n prometheus svc/prometheus-grafana 8080:80
 ```
-图
+![](pics/prometheus2.png)
+![](pics/prometheus3.png)    
 grafana admin credentials setup with prometheus-grafana secret
 the default credentials(username/password) are admin/prom-operator
 ```
 kubectl get secret --namespace prometheus prometheus-grafana -o yaml
 ```
 Now you can monitor 5GC in terms of Pods, Cluster, Namespace, etc.
-图
+![](pics/service1.png)
+![](pics/service3.png)
