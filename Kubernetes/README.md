@@ -6,7 +6,7 @@
   - [Install Minikube](#Install-Minikube)
   - [Install kubectl](#Install-kubectl)
   - [Kube-flannel & etcd-ha-operator](#kube\-flannel-\&-etcd\-ha\-operator)
-  - [Openvswitch, Multus and OVS-CNI Containers](#openvswitch\,-multus-and-ovs\-cni-containers)
+  - [Openvswitch, Multus and OVS-CNI Containers](#Openvswitch\,-Multus-and-OVS\-CNI-container)
 - [Deployments](#Deployments)
 - [Grafana prometheus](#Using-grafana\.promtheus-community-to-monitor-5GC-service)
   - [Install helm](#Install-helm-and-verify-it)
