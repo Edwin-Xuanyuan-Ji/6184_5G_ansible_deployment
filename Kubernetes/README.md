@@ -9,7 +9,7 @@
   - [Openvswitch, Multus and OVS-CNI Containers](#openvswitch\,-multus-and-ovs-cni-containers)
 - [Deployments](#Deployments)
 - [Grafana prometheus](#Using-grafana\.promtheus-community-to-monitor-5GC-service)
-  - [Install helm](#Install-helm)
+  - [Install helm](#Install-helm-and-verify-it)
   - [Deploy chart](#deploy-chart-of-kube-prometheus-stack)
 ## prerequisites
 We use KVM to create a Linux OS virtual machine, with the configuration and Kernel setup:
